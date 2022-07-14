@@ -68,10 +68,9 @@ public class EmployeeServiceImplTest {
     public void updateTest01() {
         Employee employee = new Employee(1, "mckenna", "ohara", "email");
         BDDMockito.doReturn(employee).when(employeeRepo).save(employee);
-        employee.setFirstName("bob");
-        employee.setLastName("smith");
-        employee.setEmail("email");
-        BDDMockito.doReturn(employee).when(employeeRepo).save(employee);
+        Employee employeeNew = new Employee(1, "bob", "smith", "email");
+        BDDMockito.doReturn(employeeNew).when(employeeRepo).save(employeeNew);
+        BDDMockito.doReturn(Optional.of(employee)).when(employeeRepo).findById(1L);
         Employee actual = employeeService.update(1L, employee);
         Assertions.assertEquals(employee, actual);
     }
