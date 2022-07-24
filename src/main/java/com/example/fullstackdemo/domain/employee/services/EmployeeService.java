@@ -5,7 +5,8 @@ import com.example.fullstackdemo.domain.employee.models.Employee;
 
 import java.util.List;
 
-public interface EmployeeService {
+public interface
+EmployeeService {
     Employee create(Employee employee);
     List<Employee> getAll();
     Employee getById(Long id) throws ResourceNotFoundException;
